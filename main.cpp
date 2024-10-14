@@ -33,12 +33,13 @@ void Display_Menu()
 
 void Add_Transformer(Transformer_Repository& repo)
 {
+    
     std::string name, faction;
     int strength;
     std::cout << "Enter transformer name: ";
-    std::cin >> name;
+    std::getline(std::cin, name);
     std::cout << "Enter faction: ";
-    std::cin >> faction;
+    std::getline(std::cin, faction);
     std::cout << "Enter strength: ";
     std::cin >> strength;
 
@@ -170,6 +171,7 @@ int main()
     {
         Display_Menu();
         std::cin >> input;
+        std::cin.ignore(1, '\n');
 
         if (std::regex_match(input, pattern)) 
         {
