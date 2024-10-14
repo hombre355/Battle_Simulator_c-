@@ -43,15 +43,6 @@ void Transformer_Repository::remove(int index)
 Transformer* Transformer_Repository::get(int index)
 {
     return &transformers.at(index);
-    /*for (auto& transformer : transformers)
-    {
-        if (transformer.getName() == name)
-        {
-            return &transformer;
-        }
-    }
-    return nullptr;
-    */
 }
 
 std::vector<Transformer> Transformer_Repository::getAll() const

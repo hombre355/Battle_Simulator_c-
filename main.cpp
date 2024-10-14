@@ -1,6 +1,5 @@
 #include <iostream>
 #include <regex>
-//#include <string>
 #include "Transformer_Repo.h"
 #include "Battle_Simulator.h"
 
@@ -69,11 +68,6 @@ void Remove_Transformer(Transformer_Repository& repo)
     std::cout << "Select the Transformer you wish to delete\n";
     std::cin >> input;
 
-    // match regex (a number between 1 and 100)
-    // and
-    // is greater than 0
-    // and
-    // is less then number of elements in vector 
     if (std::regex_match(input, pattern) && (atoi(input.c_str())) > 0 && (atoi(input.c_str()) <= num_of_elements))
     {
         repo.remove(atoi(input.c_str()) - 1);
@@ -103,9 +97,9 @@ void Simulate_Battle(Transformer_Repository& repo, BattleSimulator& simulator)
     std::cout << "Select Combantant #1\n";
     std::cin >> input;
 
-    if (!std::regex_match(input, pattern))
+    if (!std::regex_match(input, pattern) || (atoi(input.c_str())) <= 0 || (atoi(input.c_str()) > num_of_elements))
     {
-        std::cout << "Wrong\n";
+        std::cout << "Input was not correct. Please try again.\n";
         return;
     }
     com1 = atoi(input.c_str()) - 1;
@@ -114,9 +108,9 @@ void Simulate_Battle(Transformer_Repository& repo, BattleSimulator& simulator)
     std::cout << "Select Combantant #2\n";
     std::cin >> input;
 
-    if (!std::regex_match(input, pattern))
+    if (!std::regex_match(input, pattern) || (atoi(input.c_str())) <= 0 || (atoi(input.c_str()) > num_of_elements))
     {
-        std::cout << "Wrong\n";
+        std::cout << "Input was not correct. Please try again.\n";
         return;
     }
     com2 = atoi(input.c_str()) - 1;
@@ -128,9 +122,9 @@ void Simulate_Battle(Transformer_Repository& repo, BattleSimulator& simulator)
         std::cout << "Select Combantant #2\n";
         std::cin >> input;
 
-        if (!std::regex_match(input, pattern) && ((atoi(input.c_str())) < 1) && (atoi(input.c_str()) > num_of_elements))
+        if (!std::regex_match(input, pattern) && (atoi(input.c_str())) > 0 && (atoi(input.c_str()) <= num_of_elements))
         {
-            std::cout << "Wrong\n";
+            std::cout << "Input was not correct. Please try again.\n";
             return;
         }
         com2 = atoi(input.c_str()) - 1;

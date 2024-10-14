@@ -3,21 +3,22 @@
 #include <cstdlib>
 #include <ctime>
 
-std::string BattleSimulator::battle(const ITransformer& transformer1, const ITransformer& transformer2)
+std::string BattleSimulator::battle(const Transformer& t1, const Transformer& t2)
 {
     // Randomly determine the winner
-    std::srand(std::time(0)); // Initialize random seed
-    if (transformer1.getStrength() > transformer2.getStrength())
+    //std::srand(std::time(0)); // Initialize random seed
+    if (t1.getStrength() > t2.getStrength())
     {
-        const_cast<ITransformer&>(transformer1).winBattle(); // Increment the wins for transformer1
-        const_cast<ITransformer&>(transformer2).loseBattle(); // Increment losses for transformer2
-        return transformer1.getName() + " wins!";
+
+        const_cast<Transformer&>(t1).winBattle(); // Increment the wins for transformer1
+        const_cast<Transformer&>(t2).loseBattle(); // Increment losses for transformer2
+        return t1.getName() + " wins!";
     }
-    else if (transformer1.getStrength() < transformer2.getStrength())
+    else if (t1.getStrength() < t2.getStrength())
     {
-        const_cast<ITransformer&>(transformer2).winBattle();
-        const_cast<ITransformer&>(transformer1).loseBattle();
-        return transformer2.getName() + " wins!";
+        const_cast<Transformer&>(t2).winBattle();
+        const_cast<Transformer&>(t1).loseBattle();
+        return t2.getName() + " wins!";
     }
     else
     {
