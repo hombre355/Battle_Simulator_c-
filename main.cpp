@@ -43,39 +43,62 @@ void Add_Transformer(Transformer_Repository& repo)
     std::cout << "Enter strength: ";
     std::cin >> strength;
 
-    int a = repo.add(Transformer(name, faction, strength));
-    if (a == 0)
-    {
-        std::cout << "Transformer added successfully!\n";
-    }
-    else
+    int ret = repo.add(Transformer(name, faction, strength));
+    if (ret != 0)
     {
         std::cout << "That Transformer has already been added.\n";
+        return;
     }
+    std::cout << "Transformer added successfully!\n";
 }
 
 void Remove_Transformer(Transformer_Repository& repo) 
 {
+    std::vector<Transformer> t = repo.getAll();
+    int num_of_elements = t.size();
+    if (num_of_elements == 0)
+    {
+        std::cout << "There are no transformers to delete\n";
+        std::cout << "Please add some and then try again\n\n";
+        return;
+    }
     std::string input;
-    std::regex pattern("[1-100]+"); // regex expression that will only accept numbers 1 through 100
+    std::regex pattern("^(100|[1-9]?[0-9])$"); // regex expression that will only accept numbers 1 through 100
     Display_List(repo);
+
     std::cout << "Select the Transformer you wish to delete\n";
     std::cin >> input;
 
-    if (!std::regex_match(input, pattern))
+    // match regex (a number between 1 and 100)
+    // and
+    // is greater than 0
+    // and
+    // is less then number of elements in vector 
+    if (std::regex_match(input, pattern) && (atoi(input.c_str())) > 0 && (atoi(input.c_str()) <= num_of_elements))
     {
-        std::cout << "Wrong\n";
+        repo.remove(atoi(input.c_str()) - 1);
+        std::cout << "Transformer removed successfully!\n";
         return;
     }
-    repo.remove(atoi(input.c_str()) - 1);
-
-    std::cout << "Transformer removed successfully!\n";
+    std::cout << "Error while trying to remove Transformer\n";
+    std::cout << "Please make sure you are choosing the correct index.\n\n";
+    
 }
 
 void Simulate_Battle(Transformer_Repository& repo, BattleSimulator& simulator)
 {
+    int com1 = -1;
+    int com2 = -1;
+    std::vector<Transformer> t = repo.getAll();
+    int num_of_elements = t.size();
+    if (num_of_elements <= 1)
+    {
+        std::cout << "There are not enough transformers to Battle\n";
+        std::cout << "Please add at least two and then try again\n\n";
+        return;
+    }
     std::string input;
-    std::regex pattern("[1-100]+"); // regex expression that will only accept numbers 1 through 100
+    std::regex pattern("^(100|[1-9]?[0-9])$"); // regex expression that will only accept numbers 1 through 100
     Display_List(repo);
     std::cout << "Select Combantant #1\n";
     std::cin >> input;
@@ -85,7 +108,8 @@ void Simulate_Battle(Transformer_Repository& repo, BattleSimulator& simulator)
         std::cout << "Wrong\n";
         return;
     }
-    Transformer* t1 = repo.get(atoi(input.c_str()) - 1);
+    com1 = atoi(input.c_str()) - 1;
+    Transformer* t1 = repo.get(com1);
 
     std::cout << "Select Combantant #2\n";
     std::cin >> input;
@@ -95,20 +119,43 @@ void Simulate_Battle(Transformer_Repository& repo, BattleSimulator& simulator)
         std::cout << "Wrong\n";
         return;
     }
+    com2 = atoi(input.c_str()) - 1;
+    while (com2 == com1)
+    {
+        std::cout << "You choose the same combatant.\n";
+        std::cout << "Please choose a different fighter.\n\n";
+
+        std::cout << "Select Combantant #2\n";
+        std::cin >> input;
+
+        if (!std::regex_match(input, pattern) && ((atoi(input.c_str())) < 1) && (atoi(input.c_str()) > num_of_elements))
+        {
+            std::cout << "Wrong\n";
+            return;
+        }
+        com2 = atoi(input.c_str()) - 1;
+
+    }
     Transformer* t2 = repo.get(atoi(input.c_str()) - 1);
 
     if (t1 && t2) 
     {
         std::cout << simulator.battle(*t1, *t2) << "\n";
+        return;
     }
-    else 
-    {
         std::cout << "One or both transformers not found.\n";
-    }
 }
 
 void View_Transformer_Info(Transformer_Repository& repo) 
 {
+    std::vector<Transformer> t = repo.getAll();
+    int num_of_elements = t.size();
+    if (num_of_elements == 0)
+    {
+        std::cout << "There are no transformers to display\n";
+        std::cout << "Please add some and then try again\n\n";
+        return;
+    }
     Display_List(repo);
 
 }
@@ -134,19 +181,28 @@ int main()
         {
             choice = atoi(input.c_str());
         }
+        else
+        {
+            std::cout << "Error\n";
+            continue;
+        }
 
         switch (choice)
         {
             case 1: 
+                std::cout << "\n";
                 Add_Transformer(repo); 
                 break;
             case 2: 
+                std::cout << "\n";
                 Remove_Transformer(repo); 
                 break;
             case 3: 
+                std::cout << "\n";
                 Simulate_Battle(repo, simulator); 
                 break;
             case 4: 
+                std::cout << "\n";
                 View_Transformer_Info(repo); 
                 break;
             case 5: 
