@@ -35,15 +35,18 @@ int Transformer_Repository::add(const Transformer& transformer)
     }
 }
 
+
 void Transformer_Repository::remove(int index)
 {
     transformers.erase(transformers.begin() + index);
 }
 
+
 Transformer* Transformer_Repository::get(int index)
 {
     return &transformers.at(index);
 }
+
 
 std::vector<Transformer> Transformer_Repository::getAll() const
 {
