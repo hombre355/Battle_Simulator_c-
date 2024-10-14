@@ -6,40 +6,44 @@
 
 int Transformer_Repository::add(const Transformer& transformer)
 {
-    std::string a = transformer.getName();
+    std::string name = transformer.getName();
 
-    auto it = std::find_if(transformers.begin(), transformers.end(),
-        [&a](const Transformer& t) { return t.getName() == a; });
+    auto name_it = std::find_if(transformers.begin(), transformers.end(),
+        [&name](const Transformer& t) { return t.getName() == name; });
 
-    if(it != transformers.end())
+    if (name_it == transformers.end())
     {
         transformers.push_back(transformer);
         return 0;
     }
     else
     {
+        std::string faction = transformer.getFaction();
 
-        return 1;
+        auto faction_it = std::find_if(transformers.begin(), transformers.end(),
+            [&faction](const Transformer& t) { return t.getFaction() == faction; });
+
+        if (faction_it == transformers.end())
+        {
+            transformers.push_back(transformer);
+            return 0;
+        }
+        else
+        {
+            return 1;
+        }
     }
-    return 0;
-    
 }
 
-int Transformer_Repository::remove(const std::string& name)
+void Transformer_Repository::remove(int index)
 {
-    auto it = std::remove_if(transformers.begin(), transformers.end(),
-        [&name](const Transformer& t) { return t.getName() == name; });
-
-    if (it != transformers.end())
-    {
-        transformers.erase(it, transformers.end());
-    }
-    return 0;
+    transformers.erase(transformers.begin() + index);
 }
 
-Transformer* Transformer_Repository::get(const std::string& name)
+Transformer* Transformer_Repository::get(int index)
 {
-    for (auto& transformer : transformers)
+    return &transformers.at(index);
+    /*for (auto& transformer : transformers)
     {
         if (transformer.getName() == name)
         {
@@ -47,6 +51,7 @@ Transformer* Transformer_Repository::get(const std::string& name)
         }
     }
     return nullptr;
+    */
 }
 
 std::vector<Transformer> Transformer_Repository::getAll() const

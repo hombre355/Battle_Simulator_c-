@@ -11,8 +11,8 @@ private:
 
 public:
     int add(const Transformer& transformer) override;
-    int remove(const std::string& name) override;
-    Transformer* get(const std::string& name) override;
+    void remove(int index) override;
+    Transformer* get(int index) override;
     std::vector<Transformer> getAll() const override;
 };
 

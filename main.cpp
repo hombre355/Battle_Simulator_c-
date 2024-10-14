@@ -4,6 +4,24 @@
 #include "Transformer_Repo.h"
 #include "Battle_Simulator.h"
 
+void Display_List(Transformer_Repository& repo)
+{
+    printf("%-10s%-25s%-20s%-10s%-10s%-10s\n", "Index", "Name", "Faction", "Strength", "Wins", "Losses");
+
+    std::vector<Transformer> t = repo.getAll();
+    int index = 1;
+    for (auto& it : t)
+    {
+        printf("%-10d%-25s%-20s%-10d%-10d%-10d\n", index, 
+                                                   it.getName().c_str(), 
+                                                   it.getFaction().c_str(), 
+                                                   it.getStrength(),
+                                                   it.getWins(), 
+                                                   it.getLosses());
+        index++;
+    }
+}
+
 void Display_Menu() 
 {
     std::cout << "\nEnter a number between 1 through 5 and then press Enter\n";
@@ -14,7 +32,7 @@ void Display_Menu()
     std::cout << "5. Exit\n";
 }
 
-void Add_Transformer(Transformer_Repository& repo) 
+void Add_Transformer(Transformer_Repository& repo)
 {
     std::string name, faction;
     int strength;
@@ -25,29 +43,59 @@ void Add_Transformer(Transformer_Repository& repo)
     std::cout << "Enter strength: ";
     std::cin >> strength;
 
-    repo.add(Transformer(name, faction, strength));
-    std::cout << "Transformer added successfully!\n";
+    int a = repo.add(Transformer(name, faction, strength));
+    if (a == 0)
+    {
+        std::cout << "Transformer added successfully!\n";
+    }
+    else
+    {
+        std::cout << "That Transformer has already been added.\n";
+    }
 }
 
 void Remove_Transformer(Transformer_Repository& repo) 
 {
-    std::string name;
-    std::cout << "Enter transformer name to remove: ";
-    std::cin >> name;
-    repo.remove(name);
+    std::string input;
+    std::regex pattern("[1-100]+"); // regex expression that will only accept numbers 1 through 100
+    Display_List(repo);
+    std::cout << "Select the Transformer you wish to delete\n";
+    std::cin >> input;
+
+    if (!std::regex_match(input, pattern))
+    {
+        std::cout << "Wrong\n";
+        return;
+    }
+    repo.remove(atoi(input.c_str()) - 1);
+
     std::cout << "Transformer removed successfully!\n";
 }
 
 void Simulate_Battle(Transformer_Repository& repo, BattleSimulator& simulator)
 {
-    std::string name1, name2;
-    std::cout << "Enter name of the first transformer: ";
-    std::cin >> name1;
-    std::cout << "Enter name of the second transformer: ";
-    std::cin >> name2;
+    std::string input;
+    std::regex pattern("[1-100]+"); // regex expression that will only accept numbers 1 through 100
+    Display_List(repo);
+    std::cout << "Select Combantant #1\n";
+    std::cin >> input;
 
-    Transformer* t1 = repo.get(name1);
-    Transformer* t2 = repo.get(name2);
+    if (!std::regex_match(input, pattern))
+    {
+        std::cout << "Wrong\n";
+        return;
+    }
+    Transformer* t1 = repo.get(atoi(input.c_str()) - 1);
+
+    std::cout << "Select Combantant #2\n";
+    std::cin >> input;
+
+    if (!std::regex_match(input, pattern))
+    {
+        std::cout << "Wrong\n";
+        return;
+    }
+    Transformer* t2 = repo.get(atoi(input.c_str()) - 1);
 
     if (t1 && t2) 
     {
@@ -61,22 +109,8 @@ void Simulate_Battle(Transformer_Repository& repo, BattleSimulator& simulator)
 
 void View_Transformer_Info(Transformer_Repository& repo) 
 {
-    std::string name;
-    std::cout << "Enter transformer name to view info: ";
-    std::cin >> name;
-    Transformer* t = repo.get(name);
-    if (t) 
-    {
-        std::cout << "Name: " << t->getName() << "\n";
-        std::cout << "Faction: " << t->getFaction() << "\n";
-        std::cout << "Strength: " << t->getStrength() << "\n";
-        std::cout << "Wins: " << t->getWins() << "\n";
-        std::cout << "Losses: " << t->getLosses() << "\n";
-    }
-    else 
-    {
-        std::cout << "Transformer not found.\n";
-    }
+    Display_List(repo);
+
 }
 
 int main() 
