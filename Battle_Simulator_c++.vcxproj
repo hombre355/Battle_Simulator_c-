@@ -127,15 +127,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Battle_Simulator.cpp" />
+    <ClCompile Include="Transformer_Battle_Sim.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Transformer_Repo.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Battle_Simulator.h" />
+    <ClInclude Include="Transformer_Battle_Sim.h" />
     <ClInclude Include="IBattle_Simulator.h" />
     <ClInclude Include="IRepository.h" />
-    <ClInclude Include="ITransformer.h" />
+    <ClInclude Include="ICombatant.h" />
     <ClInclude Include="Transformer.h" />
     <ClInclude Include="Transformer_Repo.h" />
   </ItemGroup>

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <regex>
 #include "Transformer_Repo.h"
-#include "Battle_Simulator.h"
+#include "Transformer_Battle_Sim.h"
 
 void Display_List(Transformer_Repository& repo)
 {
@@ -79,7 +79,7 @@ void Remove_Transformer(Transformer_Repository& repo)
     
 }
 
-void Simulate_Battle(Transformer_Repository& repo, BattleSimulator& simulator)
+void Simulate_Battle(Transformer_Repository& repo, Transformer_Battle_Sim& simulator)
 {
     int com1 = -1;
     int com2 = -1;
@@ -157,7 +157,7 @@ void View_Transformer_Info(Transformer_Repository& repo)
 int main() 
 {
     Transformer_Repository repo;
-    BattleSimulator simulator;
+    Transformer_Battle_Sim simulator;
     std::string input;
     std::regex pattern("[1-5]+"); // regex expression that will only accept numbers 1 through 5
 

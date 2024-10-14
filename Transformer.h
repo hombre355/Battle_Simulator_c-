@@ -1,10 +1,10 @@
 #ifndef TRANSFORMER_H
 #define TRANSFORMER_H
 
-#include "ITransformer.h"
+#include "ICombatant.h"
 #include <string>
 
-class Transformer : public ITransformer
+class Transformer : public ICombatant
 {
 private:
     std::string name;

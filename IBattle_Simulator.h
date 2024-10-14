@@ -1,7 +1,6 @@
 #ifndef IBATTLE_SIMULATOR_H
 #define IBATTLE_SIMULATOR_H
 
-//#include "ITransformer.h"
 #include <string>
 
 template <typename T>
@@ -11,7 +10,6 @@ public:
     virtual ~IBattle_Simulator() = default;
 
     virtual std::string battle(const T& combatant1, const T& combatant2) = 0;
-    //virtual std::string battle(const T combatant1, const T combatant2) = 0;
 };
 
 #endif IBATTLE_SIMULATOR_H
