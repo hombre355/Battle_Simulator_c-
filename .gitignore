@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/ICombatant.h
+/Transformer_Battle_Sim.cpp
+/Transformer_Battle_Sim.h
