@@ -20,6 +20,9 @@
     <ClCompile Include="Transformer_Repo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Transformer_Main_Loop.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IBattle_Simulator.h">
@@ -38,6 +41,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Transformer_Battle_Sim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Transformer_Main_Loop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

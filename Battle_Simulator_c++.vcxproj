@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="Transformer_Battle_Sim.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Transformer_Main_Loop.cpp" />
     <ClCompile Include="Transformer_Repo.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -137,6 +138,7 @@
     <ClInclude Include="IRepository.h" />
     <ClInclude Include="ICombatant.h" />
     <ClInclude Include="Transformer.h" />
+    <ClInclude Include="Transformer_Main_Loop.h" />
     <ClInclude Include="Transformer_Repo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

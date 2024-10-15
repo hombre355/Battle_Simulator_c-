@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Battle_Simulator_c++", "Battle_Simulator_c++.vcxproj", "{886A9F46-A4EC-45BA-888C-97C17B56A2FD}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Battle_sim_unit_test", "..\Battle_sim_unit_test\Battle_sim_unit_test.vcxproj", "{235BEA59-CECC-4D2E-80E7-2622ECB028B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{886A9F46-A4EC-45BA-888C-97C17B56A2FD}.Release|x64.Build.0 = Release|x64
 		{886A9F46-A4EC-45BA-888C-97C17B56A2FD}.Release|x86.ActiveCfg = Release|Win32
 		{886A9F46-A4EC-45BA-888C-97C17B56A2FD}.Release|x86.Build.0 = Release|Win32
+		{235BEA59-CECC-4D2E-80E7-2622ECB028B0}.Debug|x64.ActiveCfg = Debug|x64
+		{235BEA59-CECC-4D2E-80E7-2622ECB028B0}.Debug|x64.Build.0 = Debug|x64
+		{235BEA59-CECC-4D2E-80E7-2622ECB028B0}.Debug|x86.ActiveCfg = Debug|Win32
+		{235BEA59-CECC-4D2E-80E7-2622ECB028B0}.Debug|x86.Build.0 = Debug|Win32
+		{235BEA59-CECC-4D2E-80E7-2622ECB028B0}.Release|x64.ActiveCfg = Release|x64
+		{235BEA59-CECC-4D2E-80E7-2622ECB028B0}.Release|x64.Build.0 = Release|x64
+		{235BEA59-CECC-4D2E-80E7-2622ECB028B0}.Release|x86.ActiveCfg = Release|Win32
+		{235BEA59-CECC-4D2E-80E7-2622ECB028B0}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
