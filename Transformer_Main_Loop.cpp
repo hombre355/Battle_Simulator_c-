@@ -1,6 +1,6 @@
-#include "Transformer_Main_Loop.h"
 #include <iostream>
 #include <regex>
+#include "Transformer_Main_Loop.h"
 #include "Transformer_Repo.h"
 #include "Transformer_Battle_Sim.h"
 
@@ -176,7 +176,7 @@ int Transformer_Main_Loop::Game_Loop()
         }
         else
         {
-            std::cout << "Error\n";
+            std::cout << "Please choose again!\n";
             continue;
         }
 
@@ -204,6 +204,6 @@ int Transformer_Main_Loop::Game_Loop()
             std::cout << "Invalid choice! Please choose a number from 1 to 5.\n";
         }
     }
-    std::cout << "\n===== Thanks for playing Battle Simualtor. =====\n";
+    
     return 0;
 }

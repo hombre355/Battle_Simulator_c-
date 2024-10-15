@@ -141,6 +141,9 @@
     <ClInclude Include="Transformer_Main_Loop.h" />
     <ClInclude Include="Transformer_Repo.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Combatants_List.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

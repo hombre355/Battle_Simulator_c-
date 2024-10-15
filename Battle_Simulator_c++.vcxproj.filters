@@ -9,19 +9,29 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
+    <Filter Include="Source Files\Transformer">
+      <UniqueIdentifier>{fb8497f5-fe08-49f7-8f38-20c84792511c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Transformer">
+      <UniqueIdentifier>{551860a5-f353-454c-925f-f90d3af72cc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ThunderCats">
+      <UniqueIdentifier>{8c1706d4-5c25-432e-beed-ee9a9c48db33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ThunderCats">
+      <UniqueIdentifier>{ff89c599-608f-45e2-8b92-8a0c91b706e6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Transformer_Battle_Sim.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Transformer_Repo.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Transformer</Filter>
     </ClCompile>
     <ClCompile Include="Transformer_Main_Loop.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Transformer</Filter>
+    </ClCompile>
+    <ClCompile Include="Transformer_Repo.cpp">
+      <Filter>Source Files\Transformer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -31,20 +41,23 @@
     <ClInclude Include="IRepository.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Transformer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ICombatant.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Transformer_Repo.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Transformer.h">
+      <Filter>Header Files\Transformer</Filter>
     </ClInclude>
     <ClInclude Include="Transformer_Battle_Sim.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Transformer</Filter>
     </ClInclude>
     <ClInclude Include="Transformer_Main_Loop.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Transformer</Filter>
     </ClInclude>
+    <ClInclude Include="Transformer_Repo.h">
+      <Filter>Header Files\Transformer</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Combatants_List.txt" />
   </ItemGroup>
 </Project>
