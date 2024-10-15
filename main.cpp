@@ -1,11 +1,10 @@
-//#define NUM_OF_SIMS 1
-
 #include <iostream>
 #include <fstream>
 #include <regex>
 #include <string>
 #include <vector>
 #include "Transformer_Main_Loop.h"
+#include "ThunderCats_Main_Loop.h"
 
 
 int main() 
@@ -62,12 +61,12 @@ int main()
         break;
     }
     case 2:
-        std::cout << "2\n";
-        //Remove_Transformer(repo);
+    {
+        std::cout << "\n";
+        ThunderCats_Main_Loop loop;
+        loop.Game_Loop();
         break;
-    //case 3:
-
-        //return 0;
+    }
     default:
         std::cout << "Invalid choice! Please choose a number from 1 to 3.\n";
     }

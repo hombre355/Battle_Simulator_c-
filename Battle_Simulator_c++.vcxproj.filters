@@ -21,6 +21,9 @@
     <Filter Include="Source Files\ThunderCats">
       <UniqueIdentifier>{ff89c599-608f-45e2-8b92-8a0c91b706e6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Core">
+      <UniqueIdentifier>{a1c23e53-2374-41bb-a717-595a2beeb203}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -33,17 +36,17 @@
     <ClCompile Include="Transformer_Repo.cpp">
       <Filter>Source Files\Transformer</Filter>
     </ClCompile>
+    <ClCompile Include="ThunderCats_Battle_Sim.cpp">
+      <Filter>Source Files\ThunderCats</Filter>
+    </ClCompile>
+    <ClCompile Include="ThunderCats_Main_Loop.cpp">
+      <Filter>Source Files\ThunderCats</Filter>
+    </ClCompile>
+    <ClCompile Include="ThunderCats_Repo.cpp">
+      <Filter>Source Files\ThunderCats</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="IBattle_Simulator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IRepository.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ICombatant.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Transformer.h">
       <Filter>Header Files\Transformer</Filter>
     </ClInclude>
@@ -55,6 +58,27 @@
     </ClInclude>
     <ClInclude Include="Transformer_Repo.h">
       <Filter>Header Files\Transformer</Filter>
+    </ClInclude>
+    <ClInclude Include="ThunderCats_Battle_Sim.h">
+      <Filter>Header Files\ThunderCats</Filter>
+    </ClInclude>
+    <ClInclude Include="ThunderCats_Main_Loop.h">
+      <Filter>Header Files\ThunderCats</Filter>
+    </ClInclude>
+    <ClInclude Include="ThunderCats_Repo.h">
+      <Filter>Header Files\ThunderCats</Filter>
+    </ClInclude>
+    <ClInclude Include="ThunderCats.h">
+      <Filter>Header Files\ThunderCats</Filter>
+    </ClInclude>
+    <ClInclude Include="IBattle_Simulator.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="ICombatant.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="IRepository.h">
+      <Filter>Header Files\Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

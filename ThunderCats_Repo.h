@@ -1,27 +1,27 @@
-#ifndef TRANSFORMER_REPO_H
-#define TRANSFORMER_REPO_H
+#ifndef THUNDERCATS_REPO_H
+#define THUNDERCATS_REPO_H
 
 #include "IRepository.h"
-#include "Transformer.h"
+#include "ThunderCats.h"
 
-class Transformer_Repository : public IRepository<Transformer>
+class ThunderCats_Repository : public IRepository<ThunderCats>
 {
 private:
-    std::vector<Transformer> transformers_vec;
+    std::vector<ThunderCats> ThunderCats_Vec;
 
 public:
 
     /**************************************************************
-    * 
-    * This function overrides the virtual function that will 
+    *
+    * This function overrides the virtual function that will
     * add a transformer object to a vector of transformer objects.
-    * It first checks the vector to see if there is an object 
-    * that has the same name and faction. If there is match, then 
-    * return 1. If there is no match then add it to the vector and 
+    * It first checks the vector to see if there is an object
+    * that has the same name and faction. If there is match, then
+    * return 1. If there is no match then add it to the vector and
     * return 0.
-    * 
+    *
     ***************************************************************/
-    int add(const Transformer& transformer) override;
+    int add(const ThunderCats& transformer) override;
 
     /**********************************************************
     *
@@ -37,7 +37,7 @@ public:
     * return the object from the given index.
     *
     ***********************************************************/
-    Transformer* get(int index) override;
+    ThunderCats* get(int index) override;
 
     /**********************************************************
     *
@@ -45,7 +45,7 @@ public:
     * return all the objects from the vector.
     *
     ***********************************************************/
-    std::vector<Transformer> getAll() const override;
+    std::vector<ThunderCats> getAll() const override;
 };
 
-#endif TRANSFORMER_REPO_H
+#endif THUNDERCATS_REPO_H

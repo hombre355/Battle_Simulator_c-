@@ -127,12 +127,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ThunderCats_Battle_Sim.cpp" />
+    <ClCompile Include="ThunderCats_Main_Loop.cpp" />
+    <ClCompile Include="ThunderCats_Repo.cpp" />
     <ClCompile Include="Transformer_Battle_Sim.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Transformer_Main_Loop.cpp" />
     <ClCompile Include="Transformer_Repo.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ThunderCats.h" />
+    <ClInclude Include="ThunderCats_Battle_Sim.h" />
+    <ClInclude Include="ThunderCats_Main_Loop.h" />
+    <ClInclude Include="ThunderCats_Repo.h" />
     <ClInclude Include="Transformer_Battle_Sim.h" />
     <ClInclude Include="IBattle_Simulator.h" />
     <ClInclude Include="IRepository.h" />
