@@ -1,4 +1,5 @@
-#pragma once
+#ifndef THUNDERCATS_MAIN_LOOP_H
+#define THUNDERCATS_MAIN_LOOP_H
 
 #include "ThunderCats_Repo.h"
 #include "ThunderCats_Battle_Sim.h"
@@ -17,6 +18,8 @@ public:
 	ThunderCats_Main_Loop() {};
 	int Game_Loop();
 };
+
+#endif //TRANSFORMER_MAIN_LOOP_H
 
 
 

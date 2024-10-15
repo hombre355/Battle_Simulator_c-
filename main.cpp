@@ -21,6 +21,8 @@ int main()
     if (!myfile.is_open()) 
     { 
         std::cout << "\nCan not open Combatants_list.txt\n";
+        std::cout << "Please press enter to exit the program\n";
+        std::cin.ignore();
         return 0;
     }
     while (!myfile.eof()) 
@@ -30,47 +32,53 @@ int main()
     }
 
     std::cout << "\n===== Welcome to the Battle Simulator =====\n";
-    std::cout << "===== Who will be fighting today? =====\n";
-    printf("%-10s%-25s\n", "Index", "Name");
 
-    for(int i = 1; i < (Combatant_Vector.size() + 1); i++)
+    while (true)
     {
-        printf("%-10d%-25s\n", i, Combatant_Vector.at((i - 1)).c_str());
-    }
-
-    std::cin >> input;
-    std::cin.ignore(1, '\n');
-
-    if (std::regex_match(input, pattern))
-    {
-        choice = atoi(input.c_str());
-    }
-    else
-    {
-        std::cout << "Error\n";
-        return 0;
-    }
-
-    switch (choice)
-    {
-    case 1:
-    {
+        std::cout << "===== Who will be fighting today? =====\n";
+        printf("%-10s%-25s\n", "Index", "Name");
+        int i = 1;
+        for (i; i < (Combatant_Vector.size() + 1); i++)
+        {
+            printf("%-10d%-25s\n", i, Combatant_Vector.at((i - 1)).c_str());
+        }
         std::cout << "\n";
-        Transformer_Main_Loop loop;
-        loop.Game_Loop();
-        break;
-    }
-    case 2:
-    {
-        std::cout << "\n";
-        ThunderCats_Main_Loop loop;
-        loop.Game_Loop();
-        break;
-    }
-    default:
-        std::cout << "Invalid choice! Please choose a number from 1 to 3.\n";
-    }
+        printf("%-10d%-25s\n", i, "Exit");
 
-    std::cout << "\n===== Thanks for playing Battle Simualtor. =====\n";
-    return 0;
+        std::cin >> input;
+        std::cin.ignore(1, '\n');
+
+        if (std::regex_match(input, pattern))
+        {
+            choice = atoi(input.c_str());
+        }
+        else
+        {
+            std::cout << "Error\n";
+            return 0;
+        }
+
+        switch (choice)
+        {
+            case 1:
+            {
+                std::cout << "\n";
+                Transformer_Main_Loop loop;
+                loop.Game_Loop();
+                break;
+            }
+            case 2:
+            {
+                std::cout << "\n";
+                ThunderCats_Main_Loop loop;
+                loop.Game_Loop();
+                break;
+            }
+            default:
+            {
+                std::cout << "\n===== Thanks for playing Battle Simualtor. =====\n";
+                return 0;
+            }
+        }
+    }
 }

@@ -29,7 +29,7 @@ void ThunderCats_Main_Loop::Display_Menu()
     std::cout << "2. Remove ThunderCats\n";
     std::cout << "3. Simulate Battle\n";
     std::cout << "4. View ThunderCats Info\n";
-    std::cout << "5. Exit\n";
+    std::cout << "5. Exit back to the Main Menu\n";
 }
 
 void ThunderCats_Main_Loop::Add_ThunderCats(ThunderCats_Repository& repo)

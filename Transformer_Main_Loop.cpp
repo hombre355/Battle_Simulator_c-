@@ -1,10 +1,8 @@
 #include <iostream>
 #include <regex>
 #include "Transformer_Main_Loop.h"
-#include "Transformer_Repo.h"
-#include "Transformer_Battle_Sim.h"
 
-void Display_List(Transformer_Repository& repo)
+void Transformer_Main_Loop::Display_List(Transformer_Repository& repo)
 {
     printf("%-10s%-25s%-20s%-10s%-10s%-10s\n", "Index", "Name", "Faction", "Strength", "Wins", "Losses");
 
@@ -22,19 +20,18 @@ void Display_List(Transformer_Repository& repo)
     }
 }
 
-void Display_Menu()
+void Transformer_Main_Loop::Display_Menu()
 {
     std::cout << "\nEnter a number between 1 through 5 and then press Enter\n";
     std::cout << "1. Add Transformer\n";
     std::cout << "2. Remove Transformer\n";
     std::cout << "3. Simulate Battle\n";
     std::cout << "4. View Transformer Info\n";
-    std::cout << "5. Exit\n";
+    std::cout << "5. Exit back to the Main Menu\n";
 }
 
-void Add_Transformer(Transformer_Repository& repo)
+void Transformer_Main_Loop::Add_Transformer(Transformer_Repository& repo)
 {
-
     std::string name, faction;
     int strength;
     std::cout << "Enter transformer name: ";
@@ -53,7 +50,7 @@ void Add_Transformer(Transformer_Repository& repo)
     std::cout << "Transformer added successfully!\n";
 }
 
-void Remove_Transformer(Transformer_Repository& repo)
+void Transformer_Main_Loop::Remove_Transformer(Transformer_Repository& repo)
 {
     std::vector<Transformer> t = repo.getAll();
     int num_of_elements = t.size();
@@ -81,7 +78,7 @@ void Remove_Transformer(Transformer_Repository& repo)
 
 }
 
-void Simulate_Battle(Transformer_Repository& repo, Transformer_Battle_Sim& simulator)
+void Transformer_Main_Loop::Simulate_Battle(Transformer_Repository& repo, Transformer_Battle_Sim& simulator)
 {
     int com1 = -1;
     int com2 = -1;
@@ -142,7 +139,7 @@ void Simulate_Battle(Transformer_Repository& repo, Transformer_Battle_Sim& simul
     std::cout << "One or both transformers not found.\n";
 }
 
-void View_Transformer_Info(Transformer_Repository& repo)
+void Transformer_Main_Loop::View_Transformer_Info(Transformer_Repository& repo)
 {
     std::vector<Transformer> t = repo.getAll();
     int num_of_elements = t.size();
@@ -160,6 +157,7 @@ int Transformer_Main_Loop::Game_Loop()
 {
     Transformer_Repository repo;
     Transformer_Battle_Sim simulator;
+    Transformer_Main_Loop loop;
     std::string input;
     std::regex pattern("[1-5]+"); // regex expression that will only accept numbers 1 through 5
     int choice = 0;
